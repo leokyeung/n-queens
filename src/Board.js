@@ -147,9 +147,6 @@
       var result = false;
       // need to get each column
       // iterate each column
-
-
-
       for (var i = 0; i < this.get('n'); i++) {
         if (this.hasColConflictAt(i)) {
           result = true;
@@ -165,21 +162,20 @@
     //
     // test if a specific major diagonal on this board contains a conflict
     hasMajorDiagonalConflictAt: function (colIndex) {
-
       // create a place to hold all the result of colIndex
       var array = [];
       var count = 0;
-      var i = 0;
+      var row = 0;
       // if colindex is less than 0, convert it an absolute number
       if (colIndex < 0) {
         colIndex = Math.abs(colIndex);
-        i = colIndex;
+        row = colIndex;
         colIndex = 0;
       }
 
       // iterating the whole board
-      for (i; i < this.get('n'); i++) {
-        var element = this.get(i)[colIndex];
+      for (row; row < this.get('n'); row++) {
+        var element = this.get(row)[colIndex];
         array.push(element);
         colIndex++;
         //if statement to break the for loop if index is the same as the length
@@ -262,7 +258,7 @@
     // test if any minor diagonals on this board contain conflicts
     hasAnyMinorDiagonalConflicts: function () {
       //iterate all the element in the array
-      result = false;
+
       // have to provide colIndex, a negative or positive number
 
 
@@ -272,12 +268,7 @@
         }
       }
       return false;
-
-
     }
-
-
-
   });
 
   var makeEmptyMatrix = function (n) {
